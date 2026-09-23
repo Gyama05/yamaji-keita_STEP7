@@ -204,3 +204,59 @@ VALUES (
     'エアコン',
     60000
 );
+
+-- 設問23
+INSERT INTO orders (
+    id,
+    user_id,
+    order_date
+)
+VALUES (
+    10,
+    1,
+    '2025-06-10'
+);
+
+-- 設問24
+INSERT INTO order_items (
+    id,
+    order_id,
+    product_id,
+    quantity
+)
+VALUES (
+    10,
+    10,
+    6,
+    1
+);
+
+-- 設問25
+UPDATE users
+SET age = 24
+WHERE name = '田中美咲';
+
+-- 設問26
+UPDATE products
+SET price = price * 1.1;
+
+-- 設問27
+UPDATE orders
+SET order_date = '2024-05-01'
+WHERE order_date < '2024-05-01';
+
+-- 設問28
+DELETE FROM users
+WHERE name = '高橋健一';
+
+-- 設問29
+DELETE FROM order_items
+WHERE order_id = 5;
+
+-- 設問30
+SELECT
+    products.*
+FROM products
+LEFT JOIN order_items
+    ON products.id = order_items.product_id
+WHERE order_items.id IS NULL;
