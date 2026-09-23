@@ -254,9 +254,8 @@ DELETE FROM order_items
 WHERE order_id = 5;
 
 -- 設問30
-SELECT
-    products.*
-FROM products
-LEFT JOIN order_items
-    ON products.id = order_items.product_id
-WHERE order_items.id IS NULL;
+DELETE FROM products
+WHERE id NOT IN (
+    SELECT product_id
+    FROM order_items
+);
